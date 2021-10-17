@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# Dependencies
+#  * [gh](https://github.com/cli/cli)
+#  * [jq](https://stedolan.github.io/jq)
+#
+# Example Usages:
+#  * `asciinema-gh zechris/asciinema-rec_script`
+#  * `asciinema-gh spectreconsole/spectre.console docs/input/assets/casts`
+#  * `echo 26 | screencast_dir=docs/input/assets/casts asciinema-gh spectreconsole/spectre.console`
+
+set -eou pipefail
+
+ASCIINEMA_PLAY_OPTS=${ASCIINEMA_PLAY_OPTS:---idle-time=0.1}
+SCREENCAST_EXT=${SCREENCAST_EXT:-.cast}
+
+repo() {
+  repo_name=${repo_name:-$(basename "$(pwd)")}
+  org_name=${org_name:-$(basename "$(cd ..; pwd)")}
+  echo "${org_name}/${repo_name}"
+}
+
+repo=${repo:-${1:-$(repo)}}
+screencast_dir=${screencast_dir:-${2:-screencasts}}
+
+PS3='Enter screencast number: '
+
+>&2 echo "Searching for screencasts (*${SCREENCAST_EXT} files) in https://github.com/${repo}/tree/${REF:-master}/${screencast_dir} ..."
+gh_cmd="gh api repos/${repo}/contents/${screencast_dir}"
+[[ -n ${REF:-} ]] && gh_cmd="${gh_cmd}?ref=${REF}"
+
+json=$(
+  >&2 echo "[1m${gh_cmd}[0m"
+  if ! eval "$gh_cmd"; then
+    >&2 echo "ERROR: No screencasts found"
+    exit 1
+  fi
+)
+
+# echo "$json" | jq ".[] | select(.name | endswith(\"${SCREENCAST_EXT}\"))" | cols="name size" resource=screencast json2table
+
+select name in $(echo $json | jq --raw-output ".[] | select(.name | endswith(\"${SCREENCAST_EXT}\")) | .name"); do
+  download_url=$(
+    echo $json |
+      jq --raw-output --arg name $name '.[] | select(.name == $name) | .download_url'
+  )
+  asciinema play $ASCIINEMA_PLAY_OPTS $download_url
+done

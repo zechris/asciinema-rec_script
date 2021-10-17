@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+## Date maths
+
+# The `date` command can be used to retrieve the:
+#  * *day of the week* using the `%l` option
+day_of_the_week=$(date +%l)
+
+#  * *hour of the day* using the `%u` option
+hour=$(date +%u)
+
+
+# Now, can you guess what we're going to do with those two numbers?
+# 🤔...
+sleep 3
+
+# We're going to add them together!
+echo $((day_of_the_week + hour))
