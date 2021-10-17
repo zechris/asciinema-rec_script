@@ -50,7 +50,7 @@ asciinema-rec_script screencasts/demo-date_maths
 ```
 
 Without *any* effort we can end up with a recording like this:
-[![asciicast](https://asciinema.org/a/pSQTIOh50qKqvU5BFE7tAB5gx.svg)](https://asciinema.org/a/pSQTIOh50qKqvU5BFE7tAB5gx)
+[![asciicast](https://asciinema.org/a/7jor0HatQDUu2dRMVlO7c5e8b.svg)](https://asciinema.org/a/7jor0HatQDUu2dRMVlO7c5e8b)
 
 
 ## Getting Started
@@ -80,6 +80,7 @@ Place `asciinema-rec_script` somewhere in your $PATH.
    * _(so eg. `--help` will show all the [asciinema rec [options]](https://github.com/asciinema/asciinema#rec-filename))_
  * `SLEEP=0 ./screencasts/demo-bash_functions.asc`
    * _(env vars can be passed into the script in the regular way)_
+   * _(to eg set `PROMPT="$ "`, `PROMPT_PAUSE=5`)_
  * `source ./screencasts/demo-date_maths.asc`
    * _Nb. It should also be possibe to source the `.asc` script in your $SHELL and run it as a regular bash script_
    * _(Maintaining this compatability means that the `.asc` file won't require any special commands that a regular shell script wouldn't already have in it.  Which hopefully results in regular shell scripts resulting in half-decent looking recordings.)_
