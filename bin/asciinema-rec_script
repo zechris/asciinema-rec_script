@@ -35,6 +35,10 @@ build_augmented_script() { local script="$1"
   }
 
   execute() {
+    # A pause can be added between printing the shell prompt
+    # and simulating the script typing out a command
+    PROMPT_PAUSE=${PROMPT_PAUSE:-1}
+
     case $1 in
       sleep*)
         # translate any sleep commands to our pretty 'countdown'
@@ -47,7 +51,8 @@ build_augmented_script() { local script="$1"
       ;;
       source*)
         # we'll use `source` to define multiline commands
-        printf "${PROMPT}%s[0m\n" "$(eval "${1//source/$CAT}")"
+        printf "${PROMPT}"
+        printf "%s[0m\n" "$(sleep $PROMPT_PAUSE; eval "${1//source/$CAT}")"
         # shellcheck disable=SC1090
         eval "$1"
       ;;
@@ -60,7 +65,8 @@ build_augmented_script() { local script="$1"
         comment "$(eval echo "${1/: /}")"
       ;;
       *)
-        printf "${PROMPT}%s[0m\n" "$(echo "$1" | $CAT)"
+        printf "${PROMPT}"
+        printf "%s[0m\n" "$(sleep $PROMPT_PAUSE; echo "$1" | $CAT)"
         eval "$1"
       ;;
     esac
