@@ -1,0 +1,3 @@
+f2() { local "$@"; local a=${a:-a 2} b=${b:-b 2} c=${c:-$(c)}
+  echo "-> f2(a='$a', b='$b', c='$c')"
+}
