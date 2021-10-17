@@ -1,8 +1,9 @@
 # asciinema-rec_script
-Record output from shell scripts as well as their comments and code.
+Record 💭 comments and ❯ commands from from shell scripts in addition to their output.
 
-This is done by building an augmented version of the original script that surfaces all the code & comments.
-Then passing that to asciinema's [rec --command](https://github.com/asciinema/asciinema#rec-filename) command.
+This is done by building a version of the original script that surfaces all the comments and commands by *also* echoing them to the screen.
+
+Then passing that augmented script to asciinema's [rec --command](https://github.com/asciinema/asciinema#rec-filename) command.
 
 
 ## Motivation
@@ -13,7 +14,7 @@ And it has a [rec [filename]](https://github.com/asciinema/asciinema#rec-filenam
 
 This specifies a `command` to record (other than the default of `$SHELL`)
 
-So given an (executable) script `demo-date_maths`:
+So given an (executable) script [screencasts/demo-date_maths](https://github.com/zechris/asciinema-rec_script/blob/main/screencasts/demo-date_maths):
 ```bash
 #!/usr/bin/env bash
 ## Date maths
@@ -60,17 +61,30 @@ Place `asciinema-rec_script` somewhere in your $PATH.
 #### Requirements:
  * [asciinema](https://asciinema.org) ([installation](https://github.com/asciinema/asciinema#installation))
  * bash
- * (optional) [bat](https://github.com/sharkdp/bat) ([installation](https://github.com/sharkdp/bat#installation)) # A cat clone to provide syntax highlighting
+ * (optional) [bat](https://github.com/sharkdp/bat) ([installation](https://github.com/sharkdp/bat#installation))
+   * _A `cat` clone to provide syntax highlighting_
 
 
 ### Example Usages:
- * `asciinema-rec_script ./screencasts/demo-date_maths`     # No additional arguments will pass `asciinema rec` a filename of `./screencasts/demo-date_maths.cast` to place the recording in
- * `./screencasts/demo-date_maths.asc`                      # Will take advantage of the shebang line `#!/usr/bin/env asciinema-rec_script` in the `.asc` script
- * `./screencasts/demo-date_maths.asc --`                   # Allows `asciinema rec` to receive no additional arguments (eg. `--` for no arguments, which will allow it to maintain its default behaviour of uploading to https://asciinema.org)
- * `SLEEP=0 ./screencasts/demo-bash_functions.asc`          # Will pass any necessary env vars to the script
- * `source ./screencasts/demo-date_maths.asc`               # Will source the .asc script in your $SHELL (which should be ~roughly~ compatible with bash)
+ * `asciinema-rec_script ./screencasts/demo-date_maths`
+   * _When called with no extra arguments, the tool will pass `asciinema rec` a filename of `./screencasts/demo-date_maths.cast` to place the recording in_
+   * _(Nb. the filename is derived from the source script by attaching a `.cast` extension.)_
+ * `./screencasts/demo-date_maths.asc`
+   * _Will take advantage of the shebang line [#!/usr/bin/env asciinema-rec_script](https://github.com/zechris/asciinema-rec_script/blob/main/screencasts/demo-bash_functions.asc#L1) in the `.asc` script_
+   * _(ie. allowing the input script to be run as its own command, without having to pass it as an argument to `asciinema-rec_script`)_
+ * `./screencasts/demo-date_maths.asc --`
+   * _When called with `--` the tool will allow `asciinema rec` to receive no additional arguments_
+   * _(ie. allowing it to maintain its default behaviour of uploading screencasts to https://asciinema.org)_
+ * `./screencasts/demo-date_maths.asc --help`
+   * _Will also pass any additional arguments it gets to `asciinema rec`_
+   * _(so eg. `--help` will show all the [asciinema rec [options]](https://github.com/asciinema/asciinema#rec-filename))_
+ * `SLEEP=0 ./screencasts/demo-bash_functions.asc`
+   * _(env vars can be passed into the script in the regular way)_
+ * `source ./screencasts/demo-date_maths.asc`
+   * _Nb. It should also be possibe to source the `.asc` script in your $SHELL and run it as a regular bash script_
+   * _(Maintaining this compatability means that the `.asc` file won't require any special commands that a regular shell script wouldn't already have in it.  Which hopefully results in regular shell scripts resulting in half-decent looking recordings.)_
 
-(Nb. the `.asc` extension ("ASCiinema") is not strictly necessary, but gives some uniformity.)
+(Nb. the `.asc` extension (_"ASCiinema"_) is not strictly necessary, but gives some uniformity.)
 
 
 ### How it works
@@ -84,10 +98,70 @@ It uses meta-programming to build an augmented version of itself from each of th
 
 And finally it passes that file (and any other arguments specified on the command line) to `asciinema run --command <augmented_script>` for it to make a recording.
 
+Nb. although the `.asc` scripts are used to produced asciinema recordings its expected that these files can also be run in bash/zsh
+
+eg.
+```
+❯ source screencasts/demo-bash_functions.asc
+a='a 0', b='b 0', c=''
+-> f1(a='a 0', b='b 0', c='')
+-> f1(a='a 0', b='b 0', c='')
+BEFORE: a='a 0', b='b 0', c=''
+-> f1(a='a 1', b='b 1', c='c 1')
+AFTER : a='a 1', b='b 1', c='c 1'
+BEFORE: a='a 0', b='b 0', c=''
+-> f1(a='a 1', b='b 1', c='c 1')
+AFTER : a='a 0', b='b 0', c=''
+-> f1(a='a 1', b='b 2', c='c 2')
+-> f1(a='a 1', b='b 0', c='c 2')
+Sun Oct 17 20:56:56 AEDT 2021
+-> f1(a='a 1', b='b 0', c='Sun Oct 17 20:56:56 AEDT 2021')
+BEFORE: a='a 0', b='b 0', c=''
+-> f1(a='a 1', b='b 3', c='c 3')
+AFTER : a='a 0', b='b 0', c=''
+-> f2(a='a 4', b='b 4', c='Sun Oct 17 20:56:56 AEDT 2021')
+-> f2(a='a 4', b='b 4', c='Sun Oct 17 20:56:56 AEDT 2021')
+-> f2(a='a 4', b='b 4', c='c 4')
+```
+
+#### Limitations
+As the `.asc` is read in one line at a time, making it difficult (if not impossible) to execute multi-line commands in these shell scripts.
+
+The two workarounds I could think of were:
+1. making every multi-line command fit on one line
+  * So this:
+    ```bash
+    f1() {
+      echo "-> f1(a='$a', b='$b', c='$c')"
+    }
+    ```
+  * would have to be manually edited in the `.asc` file to this:
+    ```bash
+    f1() { echo "-> f1(a='$a', b='$b', c='$c')"; }
+    ```
+2. inline the multi-line code from a `source` command:
+  * So something like this:
+    ```bash
+    source "${script%.asc}/f1.1"
+    ```
+  * could be used (eg. [here](https://github.com/zechris/asciinema-rec_script/blob/4d7b6e6768a1a9d7af97af72afeaf415be0fc647/screencasts/demo-bash_functions.asc#L7)) to source [this file](https://github.com/zechris/asciinema-rec_script/blob/4d7b6e6768a1a9d7af97af72afeaf415be0fc647/screencasts/demo-bash_functions/f1.1#L1-L3) but be seemlessly displayed in the [recording](https://asciinema.org/a/2Vvvu1UoiUI1GU6kBYDCRx9Vp?t=2) as:
+    ```bash
+    f1() {
+      echo "-> f1(a='$a', b='$b', c='$c')"
+    }
+    ```
+
 
 
 ## Also included
-### asciinema-gh
+### [asciinema-gh](https://github.com/zechris/asciinema-rec_script/blob/main/bin/asciinema-gh)
+This tool provides a command line playack menu of screencasts which it pulls from github repos.
+
+It works with both public & private github repos.
+
+(Nb. The recordings that appear in the menu don't necessarily have to be made using `asciinema-rec_script`,
+but the menu will filter out all the `.asc` files from that directory.)
+
 #### Requirements:
  * [asciinema](https://asciinema.org)
  * [gh](https://github.com/cli/cli)
@@ -96,12 +170,14 @@ And finally it passes that file (and any other arguments specified on the comman
 
 #### Example Usages:
  * `asciinema-gh zechris/asciinema-rec_script`
-   * search for .cast files in https://github.com/zechris/asciinema-rec_script/tree/master/screencasts
+   * _search for .cast files in https://github.com/zechris/asciinema-rec_script/tree/master/screencasts_
+ * `REF=v0.9.0 asciinema-gh zechris/asciinema-rec_script` 
+   * _(which can be used with a github `REF`s like release tags eg. [v0.9.0](https://github.com/zechris/asciinema-rec_script/releases/tag/v0.9.0))_
  * `REF=first_pr asciinema-gh zechris/asciinema-rec_script` 
-   * search for .cast files in https://github.com/zechris/asciinema-rec_script/tree/first_pr/screencasts
+   * _(or branch names eg. [first_pr](https://github.com/zechris/asciinema-rec_script/tree/first_pr))_
  * `asciinema-gh spectreconsole/spectre.console docs/input/assets/casts`
-   * search for .cast files in https://github.com/spectreconsole/spectre.console/tree/master/docs/input/assets/casts
+   * _(NB. a path can also be specified if the screencasts aren't found in the default `./screencasts`)_
  * `echo 26 | screencast_dir=docs/input/assets/casts asciinema-gh spectreconsole/spectre.console`
-   * ... and select number `26`
+   * _(to pre-select number `26` from the menu)_
 
 [![asciicast](https://asciinema.org/a/uiqC0yZrCP9UPGqWaX5Wnf7wF.svg)](https://asciinema.org/a/uiqC0yZrCP9UPGqWaX5Wnf7wF)
