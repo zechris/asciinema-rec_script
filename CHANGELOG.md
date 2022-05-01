@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.0.1](https://github.com/zechris/asciinema-rec_script/compare/v1.0.0...v1.0.1) (2022-05-01)
+
+
+### Bug Fixes
+
+* creating github releases ([3a17076](https://github.com/zechris/asciinema-rec_script/commit/3a170768b24a61dc16a32d80764b35af4d588a81))
+
 ## 1.0.0 (2022-05-01)
 
 
