@@ -38,22 +38,32 @@ build_augmented_script() { local script="$1"
     # A pause can be added between printing the shell prompt
     # and simulating the script typing out a command
     PROMPT_PAUSE=${PROMPT_PAUSE:-1}
+    TYPING_PAUSE=${TYPING_PAUSE:-0.001}
+
+    type_out() { local text="$1"
+      sleep "$PROMPT_PAUSE"
+      for (( i=0; i<${#text}; i++ )); do
+        printf "%s" "${text:$i:1}"
+        sleep "$TYPING_PAUSE"
+      done
+      sleep "$PROMPT_PAUSE"
+      echo "[0m"
+    }
 
     case $1 in
       sleep*)
         # translate any sleep commands to our pretty 'countdown'
         eval "${1//sleep/countdown}"
       ;;
-      echo*)
-        # do an actual `echo` if we see `:;echo`
-        printf "${PROMPT}%s[0m\n" "$(echo "${1//:;/}" | $CAT)"
-        eval "${1//:;/}"
-      ;;
+#      echo*)
+#        # do an actual `echo` if we see `:;echo`
+#        printf "%s" "${PROMPT}"
+#        eval "${1//:;/}"
+#      ;;
       source*)
         # we'll use `source` to define multiline commands
-        printf "${PROMPT}"
-        printf "%s[0m\n" "$(sleep $PROMPT_PAUSE; eval "${1//source/$CAT}")"
-        # shellcheck disable=SC1090
+        printf "%s" "${PROMPT}"
+        type_out "$(eval "${1//source/$CAT}")"
         eval "$1"
       ;;
       :\;echo*)
@@ -65,8 +75,8 @@ build_augmented_script() { local script="$1"
         comment "$(eval echo "${1/: /}")"
       ;;
       *)
-        printf "${PROMPT}"
-        printf "%s[0m\n" "$(sleep $PROMPT_PAUSE; echo "$1" | $CAT)"
+        printf "%s" "${PROMPT}"
+        type_out "$(echo "$1" | $CAT)"
         eval "$1"
       ;;
     esac
@@ -78,6 +88,7 @@ build_augmented_script() { local script="$1"
 
   end_recording() {
     echo "${END_RECORDING}${1##*/}[0m"
+    echo "(Powered by https://github.com/zechris/asciinema-rec_script)"
   }
 
   countdown() { local sleep_time=$1
