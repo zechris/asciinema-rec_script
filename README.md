@@ -52,7 +52,7 @@ asciinema-rec_script screencasts/demo-date_maths
 ```
 
 Without *any* effort we can end up with a recording like this:
-[![asciicast](https://asciinema.org/a/7jor0HatQDUu2dRMVlO7c5e8b.svg)](https://asciinema.org/a/7jor0HatQDUu2dRMVlO7c5e8b)
+[![demo-date_maths.cast](screencasts/demo-date_maths.gif)](https://asciinema.org/a/VCNsZ6N63cMxd6LxPn9j84QQZ)
 
 
 ## Getting Started
