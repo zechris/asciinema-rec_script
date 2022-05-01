@@ -16,6 +16,7 @@ export COMMENT="${COMMENT:-"💭 [3;1m"}"
 export ECHO="${ECHO:-"💬 [3;1m"}"
 export BEGIN_RECORDING="${BEGIN_RECORDING:-"🎥 [32;3mBegin recording - [1m"}"
 export END_RECORDING="${END_RECORDING:-"🎬 [32;3mEnd recording - [1m"}"
+export VERSION="${VERSION:-$(cat "${BASH_SOURCE[0]%/*}/../version.txt")}"
 
 
 build_augmented_script() { local script="$1"
@@ -36,8 +37,10 @@ build_augmented_script() { local script="$1"
 
   execute() {
     # A pause can be added between printing the shell prompt
-    # and simulating the script typing out a command
     PROMPT_PAUSE=${PROMPT_PAUSE:-1}
+
+    # A pause can be added between typing out characters in
+    # the command to simulate typing
     TYPING_PAUSE=${TYPING_PAUSE:-0.001}
 
     type_out() { local text="$1"
@@ -55,17 +58,6 @@ build_augmented_script() { local script="$1"
         # translate any sleep commands to our pretty 'countdown'
         eval "${1//sleep/countdown}"
       ;;
-#      echo*)
-#        # do an actual `echo` if we see `:;echo`
-#        printf "%s" "${PROMPT}"
-#        eval "${1//:;/}"
-#      ;;
-      source*)
-        # we'll use `source` to define multiline commands
-        printf "%s" "${PROMPT}"
-        type_out "$(eval "${1//source/$CAT}")"
-        eval "$1"
-      ;;
       :\;echo*)
         # translate any echo commands to our _echo
         eval "${1//ech/_ech}"
@@ -73,6 +65,12 @@ build_augmented_script() { local script="$1"
       :\ *)
         # do a "special" comment
         comment "$(eval echo "${1/: /}")"
+      ;;
+      source*)
+        # we'll use `source` to define multiline commands
+        printf "%s" "${PROMPT}"
+        type_out "$(eval "${1//source/$CAT}")"
+        eval "$1"
       ;;
       *)
         printf "%s" "${PROMPT}"
@@ -88,7 +86,7 @@ build_augmented_script() { local script="$1"
 
   end_recording() {
     echo "${END_RECORDING}${1##*/}[0m"
-    echo "(Powered by https://github.com/zechris/asciinema-rec_script)"
+    echo "(Powered by https://github.com/zechris/asciinema-rec_script ${VERSION})"
   }
 
   countdown() { local sleep_time=$1
@@ -150,6 +148,8 @@ LINE
   }
 
   # Now let the meta-programming begin ...
+  echo "#!/usr/bin/env bash"
+
   echo "export CAT='${CAT:-$(syntax_highlighter)}'"
   echo "export MARKDOWN='${MARKDOWN:-$(markdown_highlighter)}'"
   # shellcheck disable=SC2034
