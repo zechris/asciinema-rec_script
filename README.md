@@ -1,4 +1,6 @@
 # asciinema-rec_script
+[![Conventional Commits][conventional-commits-image]][conventional-commits-url]
+
 Record 💭 comments and ❯ commands from from shell scripts in addition to their output.
 
 This is done by building a version of the original script that surfaces all the comments and commands by *also* echoing them to the screen.
@@ -182,3 +184,6 @@ but the menu will filter out all the `.asc` files from that directory.)
    * _(to pre-select number `26` from the menu)_
 
 [![asciicast](https://asciinema.org/a/uiqC0yZrCP9UPGqWaX5Wnf7wF.svg)](https://asciinema.org/a/uiqC0yZrCP9UPGqWaX5Wnf7wF)
+
+[conventional-commits-image]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
+[conventional-commits-url]: https://conventionalcommits.org
