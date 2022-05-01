@@ -1,0 +1,6 @@
+name: 'asciinema-rec_script'
+description: 'Make asciicinema recordings of bash scripts'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args: ["ls", "clean", "casts", "ls"]

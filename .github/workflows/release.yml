@@ -1,16 +1,19 @@
-name: Release Please
-
+name: Release
 on:
   push:
-    branches: [ main ]
-
+    branches:
+      - main
 jobs:
-  release-please:
+  build-tag-release:
+    name: Build, tag, and release Docker image
     runs-on: ubuntu-latest
-
     steps:
-    - uses: google-github-actions/release-please-action@v3
-      id: release
-      with:
-        release-type: simple
-        command: release-pr
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      #- uses: zechris/asciinema-rec_script@v1.4.27
+      - name: Setup release please
+        uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: simple
