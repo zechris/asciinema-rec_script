@@ -1,9 +1,19 @@
 export PATH := bin:$(PATH)
 
-all: casts
+SCREENCASTS_DIR := screencasts
 
-casts:
-	$(foreach file, $(wildcard ./screencasts/*.asc), $(file);)
+outputs := $(foreach file, $(wildcard $(SCREENCASTS_DIR)/*.asc), $(patsubst %.asc,%.cast,$(file)))
+
+casts: $(outputs)
+
+$(SCREENCASTS_DIR)/%.cast: $(SCREENCASTS_DIR)/%.asc
+	asciinema-rec_script $(patsubst %.cast,%.asc,$@)
 
 casts_upload:
-	@bash -c "./screencasts/upload.sh"
+	upload.sh
+
+ls:
+	ls -la *
+
+clean:
+	$(RM) $(SCREENCASTS_DIR)/*.cast

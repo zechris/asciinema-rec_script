@@ -148,6 +148,8 @@ LINE
   }
 
   # Now let the meta-programming begin ...
+  echo "#!/usr/bin/env bash"
+
   echo "export CAT='${CAT:-$(syntax_highlighter)}'"
   echo "export MARKDOWN='${MARKDOWN:-$(markdown_highlighter)}'"
   # shellcheck disable=SC2034
