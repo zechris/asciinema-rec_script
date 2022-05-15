@@ -1,5 +1,13 @@
 # asciinema-rec_script changelog
 
+### [1.4.28](https://github.com/zechris/asciinema-rec_script/compare/v1.4.27...v1.4.28) (2022-05-15)
+
+
+### Bug Fixes
+
+* trigger pull_request.labeled event ([2abfbc5](https://github.com/zechris/asciinema-rec_script/commit/2abfbc5ae1dbcc19110314115a9212719e9225ca))
+* tweak action.yml ([3e0d741](https://github.com/zechris/asciinema-rec_script/commit/3e0d7418826db783ac6ea3b8a6f44a85fbe5dd9c))
+
 ### [1.4.27](https://github.com/zechris/asciinema-rec_script/compare/v1.4.26...v1.4.27) (2022-05-15)
 
 
