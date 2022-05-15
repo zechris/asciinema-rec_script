@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.4.2](https://github.com/zechris/asciinema-rec_script/compare/v1.4.1...v1.4.2) (2022-05-15)
+
+
+### Bug Fixes
+
+* Use GHCR_TOKEN personal access token in publish action ([a6e98be](https://github.com/zechris/asciinema-rec_script/commit/a6e98bedd2ccfd5b6839df0f49314d2a17f52a08))
+
 ### [1.4.1](https://github.com/zechris/asciinema-rec_script/compare/v1.4.0...v1.4.1) (2022-05-15)
 
 
