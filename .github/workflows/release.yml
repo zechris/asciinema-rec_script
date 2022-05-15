@@ -24,7 +24,9 @@ jobs:
           application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
       - name: Login into GitHub Container Registry
         if: ${{ steps.release.outputs.release_created }}
-        run: echo ${{ steps.get_workflow_token.outputs.token }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        env:
+          GHCR_TOKEN1: ${{ steps.get_workflow_token.outputs.token }}
+        run: echo $GHCR_TOKEN1 | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Build Docker image
         if: ${{ steps.release.outputs.release_created }}
         run: |
