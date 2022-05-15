@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.4.19](https://github.com/zechris/asciinema-rec_script/compare/v1.4.18...v1.4.19) (2022-05-15)
+
+
+### Bug Fixes
+
+* Hmm... do secrets have to first be set in the ENV? ([8aba524](https://github.com/zechris/asciinema-rec_script/commit/8aba5247b9fd4278329053054c42881845d4c7e8))
+
 ### [1.4.18](https://github.com/zechris/asciinema-rec_script/compare/v1.4.17...v1.4.18) (2022-05-15)
 
 
