@@ -10,9 +10,12 @@ on:
   #  tags:
   #    - "v*"
 
-  # Ok, we'll try again, but this time add _all_ the permissions
+  # Ok, we'll try again with both, but this time add _all_ the permissions
   release:
     types: [ published ]
+  push:
+    tags:
+    - "v*"
   
 permissions: read-all|write-all
 
@@ -25,7 +28,7 @@ jobs:
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
-        password: ${{ github.token }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build & push the image
       env:
         REPO: ${{ github.repository }}
