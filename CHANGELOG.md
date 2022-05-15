@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.4.21](https://github.com/zechris/asciinema-rec_script/compare/v1.4.20...v1.4.21) (2022-05-15)
+
+
+### Bug Fixes
+
+* Is there some security feature sabotaging these attempts? ([6444689](https://github.com/zechris/asciinema-rec_script/commit/6444689066b1febbac711ac25986fb55fdd5684e))
+
 ### [1.4.20](https://github.com/zechris/asciinema-rec_script/compare/v1.4.19...v1.4.20) (2022-05-15)
 
 
