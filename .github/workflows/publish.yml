@@ -7,6 +7,6 @@ on:
 jobs:
   push_image:
     runs-on: ubuntu-latest
-    if: ${{ github.event.label.name == "autorelease: tagged" }}
+    if: "autorelease: tagged" == "autorelease: tagged"
     steps:
     - uses: actions/checkout@v3
