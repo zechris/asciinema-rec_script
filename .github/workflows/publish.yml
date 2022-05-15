@@ -1,8 +1,14 @@
 name: Publish Docker image to GHCR
 
 on:
-  release:
-    types: [ published ]
+  ## Why doesn't triggering off the release getting published work?
+  # release:
+  #   types: [ published ]
+  
+  # Ok, lets just try triggering of a new version tag getting pushed instead.
+  push:
+    tags:
+      - "v*"
 
 jobs:
   push_image:
