@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - uses: zechris/asciinema-rec_script@v1
+      - uses: zechris/asciinema-rec_script@v1-action01
       - name: Setup release please
         uses: google-github-actions/release-please-action@v3
         id: release
