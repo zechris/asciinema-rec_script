@@ -1,5 +1,13 @@
 # asciinema-rec_script changelog
 
+### [1.4.23](https://github.com/zechris/asciinema-rec_script/compare/v1.4.22...v1.4.23) (2022-05-15)
+
+
+### Bug Fixes
+
+* Swap tokens ([cefb6f8](https://github.com/zechris/asciinema-rec_script/commit/cefb6f860aaf5d1c1698e22452674095e5625e03))
+* Unswap tokens ([ecb1d2c](https://github.com/zechris/asciinema-rec_script/commit/ecb1d2c4f066855c38377553832dbc4af3ac7c52))
+
 ### [1.4.22](https://github.com/zechris/asciinema-rec_script/compare/v1.4.21...v1.4.22) (2022-05-15)
 
 
