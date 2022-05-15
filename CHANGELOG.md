@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.4.14](https://github.com/zechris/asciinema-rec_script/compare/v1.4.13...v1.4.14) (2022-05-15)
+
+
+### Bug Fixes
+
+* wait, what - now you won't trigger? ([9d2c185](https://github.com/zechris/asciinema-rec_script/commit/9d2c18552ac6aae574f98aced00e7ddb2de99564))
+
 ### [1.4.13](https://github.com/zechris/asciinema-rec_script/compare/v1.4.12...v1.4.13) (2022-05-15)
 
 
