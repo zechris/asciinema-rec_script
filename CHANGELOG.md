@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.4.4](https://github.com/zechris/asciinema-rec_script/compare/v1.4.3...v1.4.4) (2022-05-15)
+
+
+### Bug Fixes
+
+* Try publish again ([f2367b2](https://github.com/zechris/asciinema-rec_script/commit/f2367b296e290d13a381e0445f5c2126d17b1364))
+
 ### [1.4.3](https://github.com/zechris/asciinema-rec_script/compare/v1.4.2...v1.4.3) (2022-05-15)
 
 
