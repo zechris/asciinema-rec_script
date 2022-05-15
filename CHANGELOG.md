@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.4.3](https://github.com/zechris/asciinema-rec_script/compare/v1.4.2...v1.4.3) (2022-05-15)
+
+
+### Bug Fixes
+
+* Try using github.token on release:published and give it _all_ the permisions ([58b55b7](https://github.com/zechris/asciinema-rec_script/commit/58b55b7fc622bfec9dbc00755e698b2dd2692c32))
+
 ### [1.4.2](https://github.com/zechris/asciinema-rec_script/compare/v1.4.1...v1.4.2) (2022-05-15)
 
 
