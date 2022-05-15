@@ -1,5 +1,17 @@
 # asciinema-rec_script changelog
 
+### [1.4.15](https://github.com/zechris/asciinema-rec_script/compare/v1.4.14...v1.4.15) (2022-05-15)
+
+
+### Bug Fixes
+
+* Does _this_ fix the syntax error? ([23629f6](https://github.com/zechris/asciinema-rec_script/commit/23629f69c274630327c151339bfd46c75e440d8b))
+* How bout this? ([c1ddf23](https://github.com/zechris/asciinema-rec_script/commit/c1ddf23e58c92373f780854fde34297b2aad6ee6))
+* Huh? ([1f09b6d](https://github.com/zechris/asciinema-rec_script/commit/1f09b6de407d6b711018fe9b3512d87d43302194))
+* Or this? ([24754a8](https://github.com/zechris/asciinema-rec_script/commit/24754a826b10529f8d4827428cf60d46185ac8ba))
+* Please! ([a16658f](https://github.com/zechris/asciinema-rec_script/commit/a16658fbc0382b959fc6fa68276c5c84be504fe4))
+* Pretty please. ([88ab6d0](https://github.com/zechris/asciinema-rec_script/commit/88ab6d0c641e6cec35a6f36c8721dc67c5e1f0e3))
+
 ### [1.4.14](https://github.com/zechris/asciinema-rec_script/compare/v1.4.13...v1.4.14) (2022-05-15)
 
 
