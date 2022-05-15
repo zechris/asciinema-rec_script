@@ -4,7 +4,7 @@ on:
     type: [labeled]
 jobs:
   screencasts:
-    if: ${{ github.event.label.name == 'screencasts' }}
+    # if: ${{ github.event.label.name == 'screencasts' }}
     name: Make screencasts
     runs-on: ubuntu-latest
     steps:
