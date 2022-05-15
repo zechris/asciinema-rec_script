@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.4.18](https://github.com/zechris/asciinema-rec_script/compare/v1.4.17...v1.4.18) (2022-05-15)
+
+
+### Bug Fixes
+
+* Try another PAT ([9c9ca27](https://github.com/zechris/asciinema-rec_script/commit/9c9ca27e4354369a49586537f18e9f7caa963f16))
+
 ### [1.4.17](https://github.com/zechris/asciinema-rec_script/compare/v1.4.16...v1.4.17) (2022-05-15)
 
 
