@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.4.29](https://github.com/zechris/asciinema-rec_script/compare/v1.4.28...v1.4.29) (2022-05-15)
+
+
+### Bug Fixes
+
+* tweak action.yml ([823c01b](https://github.com/zechris/asciinema-rec_script/commit/823c01b15bfbfd5f94d25c35b371dba416a0b3bf))
+
 ### [1.4.28](https://github.com/zechris/asciinema-rec_script/compare/v1.4.27...v1.4.28) (2022-05-15)
 
 
