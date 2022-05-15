@@ -1,27 +1,13 @@
 name: Publish Docker image to GHCR
 
 on:
-  ## Why doesn't triggering off the release getting published work?
-  # release:
-  #   types: [ published ]
-  
-  ## Ok, lets just try triggering of a new version tag getting pushed instead.
-  # push:
-  #  tags:
-  #    - "v*"
-
-  # Ok, we'll try again with both, but this time add _all_ the permissions
-  release:
-    types: [ published ]
-  push:
-    tags:
-    - "v*"
-  
-permissions: write-all
+  pull_request:
+    types: [ labeled ]
 
 jobs:
   push_image:
     runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'autorelease: tagged')
     steps:
     - uses: actions/checkout@v3
     - uses: docker/login-action@v2
