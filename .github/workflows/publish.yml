@@ -17,7 +17,7 @@ on:
     tags:
     - "v*"
   
-permissions: read-all|write-all
+permissions: write-all
 
 jobs:
   push_image:
