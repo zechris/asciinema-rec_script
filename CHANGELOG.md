@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.4.32](https://github.com/zechris/asciinema-rec_script/compare/v1.4.31...v1.4.32) (2022-05-15)
+
+
+### Bug Fixes
+
+* who thought it was a good idea to write code in yaml? ([5b85c44](https://github.com/zechris/asciinema-rec_script/commit/5b85c4411eb8a3665c9ab8fdbc527cdacee38436))
+
 ### [1.4.31](https://github.com/zechris/asciinema-rec_script/compare/v1.4.30...v1.4.31) (2022-05-15)
 
 
