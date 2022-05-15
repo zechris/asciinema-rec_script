@@ -12,8 +12,6 @@ jobs:
       credentials:
         username: ${{ github.actor }}
         password: ${{ github.token }}
-      volumes:
-        - ${{ github.workspace }}/screencasts:/app/screencasts
     steps:
-      - uses: zechris/asciinema-rec_script@v1.4.32
+      - uses: zechris/asciinema-rec_script@v1.4.33
 
