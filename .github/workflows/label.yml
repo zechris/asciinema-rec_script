@@ -7,6 +7,13 @@ jobs:
     # if: ${{ github.event.label.name == 'screencasts' }}
     name: Make screencasts
     runs-on: ubuntu-latest
+    container:
+    image: ghcr.io/zechris/asciinema-rec_script:1.4.5
+    credentials:
+      username: ${{ github.actor }}
+      password: ${{ github.token }}
+    volumes:
+      - ${{ github.workspace }}/screencasts:/github/home/screencasts
     steps:
       - uses: zechris/asciinema-rec_script@v1.4.29
 
