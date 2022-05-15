@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.4.24](https://github.com/zechris/asciinema-rec_script/compare/v1.4.23...v1.4.24) (2022-05-15)
+
+
+### Bug Fixes
+
+* login using token ([eef02fa](https://github.com/zechris/asciinema-rec_script/commit/eef02fa35c3f06e842af2af11c25bd915023cac1))
+
 ### [1.4.23](https://github.com/zechris/asciinema-rec_script/compare/v1.4.22...v1.4.23) (2022-05-15)
 
 
