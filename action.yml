@@ -3,4 +3,4 @@ description: 'Make asciicinema recordings of bash scripts'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args: ['--volume', '$(pwd)/${SCREENCASTS_DIR:-screencasts}:/app/screencasts']
+  args: [ls casts ls]
