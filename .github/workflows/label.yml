@@ -1,0 +1,12 @@
+name: Label
+on:
+  pull_request:
+    type: [labeled]
+jobs:
+  screencasts:
+    if: ${{ github.event.label.name == 'screencasts' }}
+    name: Make screencasts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: zechris/asciinema-rec_script@v1.4.27
+
