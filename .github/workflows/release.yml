@@ -26,7 +26,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         env:
           GHCR_TOKEN1: ${{ steps.get_workflow_token.outputs.token }}
-        run: echo $GHCR_TOKEN1 | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo "$GHCR_TOKEN1" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Build Docker image
         if: ${{ steps.release.outputs.release_created }}
         run: |
