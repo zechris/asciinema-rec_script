@@ -24,12 +24,10 @@ jobs:
           application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
       - uses: docker/login-action@v2
         if: ${{ steps.release.outputs.release_created }}
-        env:
-          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ env.GITHUB_TOKEN }}
+          password: ${{ steps.get_workflow_token.outputs.token }}
       - name: Build Docker image
         if: ${{ steps.release.outputs.release_created }}
         run: |
