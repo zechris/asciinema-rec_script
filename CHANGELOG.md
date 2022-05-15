@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+## [1.4.0](https://github.com/zechris/asciinema-rec_script/compare/v1.3.0...v1.4.0) (2022-05-15)
+
+
+### Features
+
+* Trigger release workflow ([107a1d6](https://github.com/zechris/asciinema-rec_script/commit/107a1d620b97b892b570eb85b34169d1cf855e77))
+
 ## [1.3.0](https://github.com/zechris/asciinema-rec_script/compare/v1.2.0...v1.3.0) (2022-05-15)
 
 
