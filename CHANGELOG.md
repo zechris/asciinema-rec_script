@@ -1,5 +1,18 @@
 # asciinema-rec_script changelog
 
+### [1.4.17](https://github.com/zechris/asciinema-rec_script/compare/v1.4.16...v1.4.17) (2022-05-15)
+
+
+### Bug Fixes
+
+* Again ([6f28330](https://github.com/zechris/asciinema-rec_script/commit/6f28330a2900f1158b20ebad96a820c52af9a731))
+* How bout.. ([09d51e2](https://github.com/zechris/asciinema-rec_script/commit/09d51e24ed27c78d42344d000f7cd0aba867e6c3))
+* Or this? ([3104232](https://github.com/zechris/asciinema-rec_script/commit/310423230f84332da98a40e3a1391bcc9c1a8964))
+* Or this? ([c64fa16](https://github.com/zechris/asciinema-rec_script/commit/c64fa1683b85b55de37ec07829db8075eb21b295))
+* This? ([bdbe791](https://github.com/zechris/asciinema-rec_script/commit/bdbe79158fe8117a982bee5c3d7133ffd9585eba))
+* try using a PAT for release-please ([06d3abe](https://github.com/zechris/asciinema-rec_script/commit/06d3abeff718406ac0efe02a9f3ef849209ecbcc))
+* Try using https://github.com/jef/streetmerchant/blob/main/.github/workflows/release.yaml ([04bd4af](https://github.com/zechris/asciinema-rec_script/commit/04bd4af067a5a0eabfcd9cb824b0c4907efe820b))
+
 ### [1.4.16](https://github.com/zechris/asciinema-rec_script/compare/v1.4.15...v1.4.16) (2022-05-15)
 
 
