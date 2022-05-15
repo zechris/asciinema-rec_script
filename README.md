@@ -187,4 +187,3 @@ but the menu will filter out all the `.asc` files from that directory.)
 
 [conventional-commits-image]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
 [conventional-commits-url]: https://conventionalcommits.org
-
