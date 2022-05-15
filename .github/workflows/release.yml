@@ -18,7 +18,9 @@ jobs:
           release-type: simple
       - name: Login into GitHub Container Registry
         if: ${{ steps.release.outputs.release_created }}
-        run: echo ${{ secrets.GHCR_PAT }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        env:
+          GHCR_PAT: ${{ secrets.GHCR_PAT }}
+        run: echo $GHCR_PAT | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Build Docker image
         if: ${{ steps.release.outputs.release_created }}
         run: |
