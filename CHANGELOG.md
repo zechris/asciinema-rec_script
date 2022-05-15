@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.4.16](https://github.com/zechris/asciinema-rec_script/compare/v1.4.15...v1.4.16) (2022-05-15)
+
+
+### Bug Fixes
+
+* Try using a Deploy Key ([7d99bca](https://github.com/zechris/asciinema-rec_script/commit/7d99bcab4ddfa423dae8b75753a66da1a1dc858b))
+
 ### [1.4.15](https://github.com/zechris/asciinema-rec_script/compare/v1.4.14...v1.4.15) (2022-05-15)
 
 
