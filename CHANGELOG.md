@@ -1,5 +1,16 @@
 # asciinema-rec_script changelog
 
+### [1.4.27](https://github.com/zechris/asciinema-rec_script/compare/v1.4.26...v1.4.27) (2022-05-15)
+
+
+### Bug Fixes
+
+* add label.yml workflow ([e4156c4](https://github.com/zechris/asciinema-rec_script/commit/e4156c46ed15f22eafd9831b14e789556d794f8b))
+* bootstrap action.yml ([fe2a3c2](https://github.com/zechris/asciinema-rec_script/commit/fe2a3c2a4a2232ebb6c5aca44e0e3ef690ea1115))
+* Let's try our own GitHub action. ([59aebc4](https://github.com/zechris/asciinema-rec_script/commit/59aebc4a462739e279a815b39af5e413b1cff3bd))
+* take 2 ([1d32f8c](https://github.com/zechris/asciinema-rec_script/commit/1d32f8ce341cf4554eb4c02fae8fd74ed2f9bd69))
+* take 3 ([3377d73](https://github.com/zechris/asciinema-rec_script/commit/3377d733b343a4b2b0a8ed769d2fa0272e218ced))
+
 ### [1.4.26](https://github.com/zechris/asciinema-rec_script/compare/v1.4.25...v1.4.26) (2022-05-15)
 
 
