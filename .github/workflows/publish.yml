@@ -10,15 +10,3 @@ jobs:
     if: ${{ github.event.label.name == "autorelease: tagged" }}
     steps:
     - uses: actions/checkout@v3
-    - uses: docker/login-action@v2
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-    - name: Build & push the image
-      env:
-        REPO: ${{ github.repository }}
-      run: |
-        VERSION=$(cat version.txt)
-        docker build --tag ghcr.io/$REPO:$VERSION --label "org.opencontainers.image.source=https://github.com/$REPO" --label "org.opencontainers.image.version=$VERSION" .
-        docker push ghcr.io/$REPO:$VERSION
