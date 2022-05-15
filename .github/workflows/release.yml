@@ -1,33 +1,14 @@
-name: Release
+name: Create Release PR
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  release:
+  release_pr:
     runs-on: ubuntu-latest
     steps:
-    - id: create_pr
+    - id: create
       uses: google-github-actions/release-please-action@v3
       with:
         release-type: simple
-
-  push_image:
-    runs-on: ubuntu-latest
-    needs: release
-    # if: ${{ needs.release.steps.create_pr.outputs.release_created }}
-    steps:
-    - uses: actions/checkout@v3
-    - uses: docker/login-action@v2
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ github.token }}
-    - name: Build & push the image
-      env:
-        REPO: ${{ github.repository }}
-      run: |
-        VERSION=$(cat version.txt)
-        docker build --tag ghcr.io/$REPO:$VERSION --label "org.opencontainers.image.source=https://github.com/$REPO" --label "org.opencontainers.image.version=$VERSION" .
-        docker push ghcr.io/$REPO:$VERSION
