@@ -1,5 +1,13 @@
 # asciinema-rec_script changelog
 
+### [1.4.22](https://github.com/zechris/asciinema-rec_script/compare/v1.4.21...v1.4.22) (2022-05-15)
+
+
+### Bug Fixes
+
+* Try creating a workflow token dynamically via an App ([6e60547](https://github.com/zechris/asciinema-rec_script/commit/6e60547cdbaa08ecd1a8ed049217e46087d6f82b))
+* try this ([693c498](https://github.com/zechris/asciinema-rec_script/commit/693c4989942187e383a8efab22e3a2b035e3c8fd))
+
 ### [1.4.21](https://github.com/zechris/asciinema-rec_script/compare/v1.4.20...v1.4.21) (2022-05-15)
 
 
