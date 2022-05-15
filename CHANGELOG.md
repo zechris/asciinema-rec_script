@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.4.11](https://github.com/zechris/asciinema-rec_script/compare/v1.4.10...v1.4.11) (2022-05-15)
+
+
+### Bug Fixes
+
+* Try fixing yaml syntax error ([72af94e](https://github.com/zechris/asciinema-rec_script/commit/72af94e4aa03dbbda8b5f79d04a9b24f45e4651a))
+
 ### [1.4.10](https://github.com/zechris/asciinema-rec_script/compare/v1.4.9...v1.4.10) (2022-05-15)
 
 
