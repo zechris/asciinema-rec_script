@@ -5,10 +5,16 @@ on:
   # release:
   #   types: [ published ]
   
-  # Ok, lets just try triggering of a new version tag getting pushed instead.
-  push:
-    tags:
-      - "v*"
+  ## Ok, lets just try triggering of a new version tag getting pushed instead.
+  # push:
+  #  tags:
+  #    - "v*"
+
+  # Ok, we'll try again, but this time add _all_ the permissions
+  release:
+    types: [ published ]
+  
+permissions: read-all|write-all
 
 jobs:
   push_image:
@@ -19,7 +25,7 @@ jobs:
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
-        password: ${{ secrets.GHCR_TOKEN }}
+        password: ${{ github.token }}
     - name: Build & push the image
       env:
         REPO: ${{ github.repository }}
