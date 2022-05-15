@@ -10,24 +10,24 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Get Release Token
-        id: get_release_token
-        uses: peter-murray/workflow-application-token-action@v1
-        with:
-          application_id: ${{ secrets.APPLICATION_ID }}
-          application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
       - name: Setup release please
         uses: google-github-actions/release-please-action@v3
         id: release
         with:
-          token: ${{ steps.get_release_token.outputs.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           release-type: simple
+      - name: Get Token
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v1
+        with:
+          application_id: ${{ secrets.APPLICATION_ID }}
+          application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
       - uses: docker/login-action@v2
         if: ${{ steps.release.outputs.release_created }}
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.token }}
+          password: ${{ steps.get_workflow_token.outputs.token }}
       - name: Build Docker image
         if: ${{ steps.release.outputs.release_created }}
         run: |
