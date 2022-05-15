@@ -3,4 +3,4 @@ description: 'Make asciicinema recordings of bash scripts'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args: [ls casts ls]
+  args: ["ls", "clean", "casts", "ls"]

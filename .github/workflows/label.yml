@@ -8,5 +8,5 @@ jobs:
     name: Make screencasts
     runs-on: ubuntu-latest
     steps:
-      - uses: zechris/asciinema-rec_script@v1.4.28
+      - uses: zechris/asciinema-rec_script@v1.4.29
 
