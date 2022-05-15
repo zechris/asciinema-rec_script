@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+### [1.4.34](https://github.com/zechris/asciinema-rec_script/compare/v1.4.33...v1.4.34) (2022-05-15)
+
+
+### Bug Fixes
+
+* checkout repo before mounting volume ([843db92](https://github.com/zechris/asciinema-rec_script/commit/843db92c5f60c6758dc5184341472225c89c16bf))
+
 ### [1.4.33](https://github.com/zechris/asciinema-rec_script/compare/v1.4.32...v1.4.33) (2022-05-15)
 
 
