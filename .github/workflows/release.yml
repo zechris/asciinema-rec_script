@@ -10,6 +10,6 @@ jobs:
     steps:
     - id: create
       uses: google-github-actions/release-please-action@v3
-      token: "${{ secrets.GHCR_DEPLOY_KEY }}"
       with:
         release-type: simple
+        token: "${{ secrets.GHCR_DEPLOY_KEY }}"
