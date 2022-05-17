@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+## [0.10.0](https://github.com/zechris/asciinema-rec_script/compare/v0.9.0...v0.10.0) (2022-05-17)
+
+
+### Features
+
+* add typing pause to echoed commands ([a77dc4b](https://github.com/zechris/asciinema-rec_script/commit/a77dc4bbc2e388f14824618137a5509833f723c5))
+
 ### [1.4.33](https://github.com/zechris/asciinema-rec_script/compare/v1.4.32...v1.4.33) (2022-05-15)
 
 
