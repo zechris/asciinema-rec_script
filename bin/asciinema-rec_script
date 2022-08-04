@@ -5,7 +5,7 @@
 #
 # This will run the script and record a screencast of it with inlined code & comments.
 
-set -euo pipefail
+set -uo pipefail
 
 REC_ARGS="${RECORD_ARGS:---idle-time-limit 1 --overwrite}"
 
