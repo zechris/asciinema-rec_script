@@ -12,8 +12,8 @@ $(SCREENCASTS_DIR)/%.cast: $(SCREENCASTS_DIR)/%.asc
 casts_upload:
 	upload.sh
 
-ls:
-	ls -la *
+list:
+	ls $(SCREENCASTS_DIR)
 
 clean:
 	$(RM) $(SCREENCASTS_DIR)/*.cast
