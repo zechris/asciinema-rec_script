@@ -154,7 +154,9 @@ The two workarounds I could think of were:
     }
     ```
 
+## Similar & Related Projects
 
+* https://github.com/garbas/asciinema-scenario
 
 ## Also included
 ### [asciinema-gh](https://github.com/zechris/asciinema-rec_script/blob/main/bin/asciinema-gh)
@@ -184,6 +186,8 @@ but the menu will filter out all the `.asc` files from that directory.)
    * _(to pre-select number `26` from the menu)_
 
 [![asciicast](https://asciinema.org/a/uiqC0yZrCP9UPGqWaX5Wnf7wF.svg)](https://asciinema.org/a/uiqC0yZrCP9UPGqWaX5Wnf7wF)
+
+
 
 [conventional-commits-image]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
 [conventional-commits-url]: https://conventionalcommits.org
