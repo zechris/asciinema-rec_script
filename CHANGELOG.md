@@ -1,5 +1,12 @@
 # asciinema-rec_script changelog
 
+## [0.11.0](https://github.com/zechris/asciinema-rec_script/compare/v0.10.0...v0.11.0) (2023-04-19)
+
+
+### Features
+
+* Allow running commands silently ([9299fd4](https://github.com/zechris/asciinema-rec_script/commit/9299fd4724308b41f7ce3f103d0c8a5b8d013001))
+
 ## [0.10.0](https://github.com/zechris/asciinema-rec_script/compare/v0.9.0...v0.10.0) (2022-08-04)
 
 
